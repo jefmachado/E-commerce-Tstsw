@@ -1,24 +1,24 @@
 {% extends 'front/base.html' %}
 {% block conteudo%}
   <form action="{% url 'produtos' %}" method="post">
-  {% csrf_token %}
-  <div style="text-align: center" class="container">
-    <h1>Cadastro de Produtos</h1>
-    {{ formulario.nome.label_tag }} {{ formulario.nome }}
-    <br><br>
-    {{ formulario.tipo.label_tag }} {{ formulario.tipo }}
-    <br><br>
-    {{ formulario.valor.label_tag }} {{ formulario.valor }}
-    <br><br>
-    {{ formulario.stq.label_tag }} {{ formulario.stq }}
-    <br><br>
-    <button class="form-control-sm" type="submit">Enviar</button>
-    <br><br><br>
-    <button style="align-content: center ">
-      <a style="text-decoration: none;color: black" href="{% url 'listaprodutos' %}">Lista de Produtos</a>
-    </button>
-  </div>
-</form>
+    {% csrf_token %}
+    <div style="text-align: center" class="container">
+      <h1> Cadastro de Produtos </h1>
+      Nome <input name="nome" class="form-control-sm" type="text"><br>
+      <br>
+      tipo <input name="tipo" class="form-control-sm" type="text"><br>
+      <br>
+      valor <input name="valor" class="form-control-sm" type="number"><br>
+      <br>
+      estoque <input name="nome" class="form-control-sm" type="number"><br>
+      <br>
+      <button class="form-control-sm" type="submit">Enviar</button>
+      <br><br><br>
+      <button style="align-content: center ">
+        <a style="text-decoration: none;color: black" href="{% url 'listaprodutos' %}">Lista de Produtos</a>
+      </button>
+    </div>
+  </form>
 
 
 {% endblock %}
