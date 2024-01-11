@@ -1,0 +1,37 @@
+{% extends 'front/base.html' %}
+{% block conteudo%}
+<div class="container">
+    <h1>Produtos cadastrados</h1>
+    <form action="{% url 'busca' %}" method="post">
+        {% csrf_token %}
+    🔍 <input name="busca" class="form-control-sm" type="text"> <button class="form-control-sm"> Enviar </button><br>
+        <select name="tipo">
+            <option value="nome">Busca por Nome</option>
+            <option value="tipo">Busca por Tipo</option>
+            <option value="id">Busca por ID</option>
+        </select>
+    </form>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Estoque</th>
+            <th>Detalhes</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{produto.id}}</td>
+            <td>{{produto.nome}}</td>
+            <td>{{produto.tipo}}</td>
+            <td>{{produto.valor}}</td>
+            <td>{{produto.stq}}</td>
+            <td><a href="{% url 'editar' produto.id %}">Editar</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <button style="align-content: center "><a href="{% url 'home' %}">Pagina Inicial</a></button>
+</div>
+{% endblock%}

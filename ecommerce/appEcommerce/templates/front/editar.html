@@ -1,0 +1,31 @@
+{% extends 'front/base.html' %}
+{% block conteudo%}
+<div class="container">
+    <h1 style="text-decoration: none;color: black">Area de Edição</h1>
+    <form action="{% url 'update' produto.id %}" method="post">
+    {% csrf_token %}
+    <div style="text-align: center" class="container">
+        <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>{{produto.nome}}</th>
+            <th>{{produto.tipo}}</th>
+            <th>{{produto.valor}}</th>
+            <th>{{produto.stq}}</th>
+        </tr>
+        <tr>
+            <td>{{produto.id}}</td>
+            <td><input name="nome" class="form-control-sm" type="text"></td>
+            <td><input name="tipo" class="form-control-sm" type="text"></td>
+            <td><input name="valor" class="form-control-sm" type="text"></td>
+            <td><input name="estoque"  class="form-control-sm" type="text"></td>
+        </tr>
+    </table>
+     <button class="form-control-sm"> Enviar </button>
+        <button class="form-control-sm"> <a style="text-decoration: none;color: black" href="{% url 'home' %}">Cancelar</a></button>
+        <button class="form-control-sm"> <a style="text-decoration: none;color: black" href="{% url 'delete' produto.id %}">Excluir</a></td></button>
+    </div>
+  </form>
+
+</div>
+{% endblock%}

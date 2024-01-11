@@ -1,0 +1,29 @@
+{% extends 'front/base.html' %}
+{% block conteudo%}
+<div class="container">
+    <h1>Produtos cadastrados</h1>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Estoque</th>
+            <th>Detalhes</th>
+        </tr>
+        {% for resultado in resultados %}
+        <tr>
+            <td>{{resultado.id}}</td>
+            <td>{{resultado.nome}}</td>
+            <td>{{resultado.tipo}}</td>
+            <td>{{resultado.valor}}</td>
+            <td>{{resultado.stq}}</td>
+            <td><a href="{% url 'editar' resultado.id %}">Editar</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <button style="align-content: center "><a href="{% url 'home' %}">Pagina Inicial</a></button>
+    <button style="align-content: center "><a style="text-decoration: none;color: black" href="{% url 'listaprodutos' %}">Lista Coompleta</a></button>
+</div>
+{% endblock%}
