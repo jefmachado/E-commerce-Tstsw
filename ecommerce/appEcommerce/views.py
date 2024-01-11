@@ -15,7 +15,7 @@ def ProdutosCad(request):
         produtos = {
             'produtos': Produtos.objects.all()
         }
-        return render(request, 'front/produtos.html', produtos)
+        return render(request, 'front/listaprodutos.html', produtos)
     except Exception as e:
         print(f"ocorreu um erro: {e}")
         mensagem_erro = "Ocorreu um erro durante o processamento. Por favor, tente novamente."
